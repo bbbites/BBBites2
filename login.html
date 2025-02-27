@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login - University Canteen</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" required>
+
+            <button type="submit">Login</button>
+            <p class="message" id="loginMessage"></p>
+            <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").onsubmit = function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            const user = JSON.parse(localStorage.getItem(email));
+
+            if (user && user.password === password) {
+                document.getElementById("loginMessage").textContent = "Login successful! Redirecting...";
+                document.getElementById("loginMessage").className = "message success";
+
+                
+                localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+                setTimeout(() => {
+                    window.location.href = "index.html"; 
+                }, 2000);
+            } else {
+                document.getElementById("loginMessage").textContent = "Invalid email or password!";
+                document.getElementById("loginMessage").className = "message error";
+            }
+        };
+    </script>
+</body>
+</html>

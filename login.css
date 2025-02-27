@@ -1,0 +1,239 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+
+body {
+    background: linear-gradient(135deg, #f0f8ff, #c2e9fb);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin: 0;
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 420px;
+    transform: translateY(-30px);
+    opacity: 0;
+    animation: slideDownFade 0.8s ease-out forwards;
+    position: relative;
+    z-index: 10;
+}
+
+
+h2 {
+    font-size: 26px;
+    color: #14b1d4;
+    margin-bottom: 25px;
+    position: relative;
+    animation: fadeInUp 1s ease-out;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    color: #444;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+
+input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s ease;
+    animation: fadeInUp 0.7s ease-out;
+}
+
+input:focus {
+    border-color: #14b1d4;
+    box-shadow: 0 0 8px rgba(20, 177, 212, 0.3);
+}
+
+
+button {
+    background: linear-gradient(135deg, #14b1d4, #0e81a3);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0e81a3, #14b1d4);
+    transform: translateY(-3px);
+}
+
+
+a {
+    color: #14b1d4;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 15px;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #0e81a3;
+}
+
+
+.message {
+    margin-top: 12px;
+    font-size: 14px;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.success {
+    color: green;
+}
+
+.error {
+    color: red;
+}
+
+
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: floatUp 10s infinite linear;
+    z-index: 1;
+}
+
+.bubble.small {
+    width: 20px;
+    height: 20px;
+}
+
+.bubble.medium {
+    width: 40px;
+    height: 40px;
+}
+
+.bubble.large {
+    width: 60px;
+    height: 60px;
+}
+
+.bubble:nth-child(1) {
+    left: 10%;
+    animation-duration: 8s;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    left: 25%;
+    animation-duration: 12s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(3) {
+    left: 50%;
+    animation-duration: 10s;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(4) {
+    left: 75%;
+    animation-duration: 14s;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(5) {
+    left: 90%;
+    animation-duration: 9s;
+    animation-delay: 4s;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDownFade {
+    from {
+        transform: translateY(-30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh);
+        opacity: 0.5;
+    }
+    to {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .container {
+        padding: 25px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    input, button {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
